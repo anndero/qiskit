@@ -34,20 +34,21 @@ if not hasattr(setuptools,
           "repeat install.".format(setuptools.__version__))
     sys.exit(1)
 
+requirements = [
+    "qiskit-terra==0.12.0",
+    "qiskit-aer==0.4.1",
+    "qiskit-ibmq-provider==0.5.0",
+    "qiskit-ignis==0.2.0",
+    "qiskit-aqua==0.6.4",
+]
 
-version_path = os.path.abspath(
-    os.path.join(
-        os.path.join(
-            os.path.join(os.path.dirname(__file__), 'qiskit'), 'ignis'),
-        'VERSION.txt'))
-with open(version_path, 'r') as fd:
-    version = fd.read().rstrip()
-
-setuptools.setup(
-    name="qiskit-ignis",
-    version=version,
-    description="Qiskit tools for quantum information science",
-    url="https://github.com/Qiskit/qiskit-ignis",
+setup(
+    name="qiskit",
+    version="0.16.1",
+    description="Software for developing quantum computing programs",
+    long_description=README,
+    long_description_content_type='text/markdown',
+    url="https://github.com/Qiskit/qiskit",
     author="Qiskit Development Team",
     author_email="qiskit@qiskit.org",
     license="Apache 2.0",
